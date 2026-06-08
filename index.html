@@ -32,17 +32,33 @@ top: 0;
 backdrop-filter: blur(10px);
 background: rgba(255,255,255,0.05);
 border-bottom: 1px solid rgba(255,255,255,0.1);
+z-index: 1000; /* Keeps navbar on top of content */
+}
+
+/* LOGO GROUPING */
+.logo-container {
+display: flex;
+align-items: center;
+gap: 15px; /* Space between logo and text */
+}
+
+.logo-img {
+height: 40px; /* Adjust height to match your logo's proportions */
+width: auto;
+object-fit: contain;
 }
 
 nav h2 {
 font-size: 22px;
 letter-spacing: 1px;
+white-space: nowrap; /* Prevents text from breaking into two lines */
 }
 
 nav ul {
 display: flex;
 gap: 25px;
 list-style: none;
+align-items: center;
 }
 
 nav ul li {
@@ -108,6 +124,14 @@ nav {
 padding: 15px 20px;
 }
 
+nav h2 {
+font-size: 18px; /* Shrinks text slightly on mobile */
+}
+
+.logo-img {
+height: 32px; /* Shrinks logo slightly on mobile */
+}
+
 .hero h1 {
 font-size: 32px;
 }
@@ -123,7 +147,10 @@ padding: 25px;
 <body>
 
 <nav>
+<div class="logo-container">
+<img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=80&h=80&fit=crop" alt="Liz Fashion Logo" class="logo-img">
 <h2>Liz Fashion Industry</h2>
+</div>
 <ul>
 <li>Home</li>
 <li>Policies</li>
@@ -136,6 +163,7 @@ padding: 25px;
 
 <h1>Welcome To The Performance Team Website</h1>
 <p>In this Website you will get all the Policies, JD</p>
+<a href="#" class="btn">Get Started</a>
 
 </div>
 </section>
