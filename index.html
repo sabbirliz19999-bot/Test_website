@@ -20,45 +20,49 @@ color: white;
 overflow-x: hidden;
 }
 
-/* NAVBAR */
+/* NAVBAR VIA GRID FOR PERFECT CENTERING */
 nav {
-display: flex;
-justify-content: space-between;
+display: grid;
+grid-template-columns: 1fr auto 1fr; /* 3 equal structural columns */
 align-items: center;
-padding: 20px 60px;
+padding: 15px 60px;
 position: fixed;
 width: 100%;
 top: 0;
 backdrop-filter: blur(10px);
 background: rgba(255,255,255,0.05);
 border-bottom: 1px solid rgba(255,255,255,0.1);
-z-index: 1000; /* Keeps navbar on top of content */
+z-index: 1000;
 }
 
-/* LOGO GROUPING */
-.logo-container {
+/* Left Column */
+nav h2 {
+font-size: 22px;
+letter-spacing: 1px;
+white-space: nowrap;
+justify-self: start; /* Pushes brand text to the far left */
+}
+
+/* Middle Column (Logo Box) */
+.logo-box {
+justify-self: center; /* Locks the logo exactly in the center */
 display: flex;
 align-items: center;
-gap: 15px; /* Space between logo and text */
+justify-content: center;
 }
 
 .logo-img {
-height: 40px; /* Adjust height to match your logo's proportions */
+height: 50px; /* Adjust height to fit your design */
 width: auto;
 object-fit: contain;
 }
 
-nav h2 {
-font-size: 22px;
-letter-spacing: 1px;
-white-space: nowrap; /* Prevents text from breaking into two lines */
-}
-
+/* Right Column */
 nav ul {
 display: flex;
 gap: 25px;
 list-style: none;
-align-items: center;
+justify-self: end; /* Pushes links to the far right */
 }
 
 nav ul li {
@@ -118,18 +122,21 @@ background: #6366f1;
 transform: scale(1.05);
 }
 
-/* RESPONSIVE */
-@media(max-width:768px){
+/* RESPONSIVE DESIGN */
+@media(max-width: 768px){
 nav {
 padding: 15px 20px;
+grid-template-columns: 1fr; /* Stack layout on mobile phones */
+gap: 10px;
+text-align: center;
 }
 
-nav h2 {
-font-size: 18px; /* Shrinks text slightly on mobile */
+nav h2, .logo-box, nav ul {
+justify-self: center; /* Center align everything vertically on mobile */
 }
 
-.logo-img {
-height: 32px; /* Shrinks logo slightly on mobile */
+nav ul {
+padding-top: 5px;
 }
 
 .hero h1 {
@@ -147,10 +154,12 @@ padding: 25px;
 <body>
 
 <nav>
-<div class="logo-container">
-<img src="https://drive.google.com/file/d/1U5vGwiDXMBQkw8kFTJttb2SlE50sYDVR/view?usp=drive_link" class="logo-img">
 <h2>Liz Fashion Industry</h2>
+
+<div class="logo-box">
+<img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=100&h=100&fit=crop" alt="Logo" class="logo-img">
 </div>
+
 <ul>
 <li>Home</li>
 <li>Policies</li>
